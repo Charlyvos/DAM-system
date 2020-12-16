@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>DAM Ingredient Media</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="icon" href="img/favicon_16px.png" type="image/gif" sizes="16x16">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div id="menu">
+                <div class="bar" id="bar1"></div>
+                <div class="bar" id="bar2"></div>
+                <div class="bar" id="bar3"></div>
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <section class="tabs">
+                <a href="#"><div class="btn block up active" id="all" onclick="filterSelection('all')">All</div></a>
+                <a href="#"><div class="btn block up" id="inspiration" onclick="filterSelection('inspiration')">Inspiration</div></a>
+                <a href="#"><div class="btn block up" id="images" onclick="filterSelection('images')">Images</div></a>
+                <a href="#"><div class="btn block up" id="videos" onclick="filterSelection('videos')">Videos</div></a>
+                <a href="#"><div class="btn block up" id="audio" onclick="filterSelection('audio')">Audio</div></a>
+                <a href="#"><div class="btn block up last" id="documents" onclick="filterSelection('documents')">Documents</div></a>
+            </section>
+
+            <section class="search">
+                <div class="block down"><input type="text" placeholder="Search" id="searchBar"></div>
+            </section>
+            
+            <div class="multi">
+                <section class="sidebar">
+                    <div class="block up">
+                        Filter tabs
+                    </div>
+                </section>
+
+                <section class="content">
+                    <div class="block up">
+                        <div class="text">
+                            <label for="upload-photo">Drag project files or browse from your computer.</label>
+                            <input type="file" name="photo" id="upload-photo" multiple/>
+                        </div>
+                        <div class="img"><img src="img/image.png" alt=""></div>
+                    </div>
+                    <div class="wrapperOutput">
+                        <div class=""><img src="" alt="" id="previewImg"></div>
+                        <div id="output"></div>
+                    </div>
+
+                    <div class="assets">
+                        <div class="filterDiv inspiration">
+                            <h1>Inspiration</h1>
+                            <div class="line"></div>
+                            <div class="block up assetThumb"><div class="info"><span class="title">Person with smoke</span><span class="extension">PNG</span></div></div>
+                            <div class="block up assetThumb"><div class="info"><span class="title">Truck in mountains</span><span class="extension">JPG</span></div></div>
+                            <div class="block up assetThumb"><div class="info"><span class="title">Aerodynamics</span><span class="extension">MP4</span></div></div>
+                            <div class="block up assetThumb"><div class="info"><span class="title">Aerodynamics</span><span class="extension">PNG</span></div></div>
+                            <div class="block up assetThumb"><div class="info"><span class="title">Daf truck</span><span class="extension">JPG</span></div></div>
+                        </div>
+
+                        <div class="filterDiv images">
+                            <h1>Images</h1>
+                            <div class="line"></div>
+                            <div class="block up assetThumb"><div class="info">Lorem Ipsum<span>PNG</span></div></div>
+                            <div class="block up assetThumb"><div class="info">Lorem Ipsum<span>JPG</span></div></div>
+                            <div class="block up assetThumb"><div class="info">Lorem Ipsum<span>SVG</span></div></div>
+                            <div class="block up assetThumb"><div class="info">Lorem Ipsum<span>JPG</span></div></div>
+                            <div class="block up assetThumb"><div class="info">Lorem Ipsum<span>PNG</span></div></div>
+                        </div>
+
+                        <div class="filterDiv videos">
+                            <h1>Videos</h1>
+                            <div class="line"></div>
+                            <div class="block up assetThumb"><div class="info">Lorem Ipsum<span>MP4</span></div></div>
+                            <div class="block up assetThumb"><div class="info">Lorem Ipsum<span>MOV</span></div></div>
+                            <div class="block up assetThumb"><div class="info">Lorem Ipsum<span>MOV</span></div></div>
+                            <div class="block up assetThumb"><div class="info">Lorem Ipsum<span>MP4</span></div></div>
+                            <div class="block up assetThumb"><div class="info">Lorem Ipsum<span>AVI</span></div></div>
+                        </div>
+
+                        <div class="filterDiv audio">
+                            <h1>Audio</h1>
+                            <div class="line"></div>
+                            <div class="block up assetThumb"><div class="info">Lorem Ipsum<span>MP3</span></div></div>
+                            <div class="block up assetThumb"><div class="info">Lorem Ipsum<span>WMA</span></div></div>
+                            <div class="block up assetThumb"><div class="info">Lorem Ipsum<span>WMA</span></div></div>
+                            <div class="block up assetThumb"><div class="info">Lorem Ipsum<span>WAV</span></div></div>
+                            <div class="block up assetThumb"><div class="info">Lorem Ipsum<span>AAC</span></div></div>
+                        </div>
+
+                        <div class="filterDiv documents">
+                            <h1>Documents</h1>
+                            <div class="line"></div>
+                            <div class="block up assetThumb"><div class="info">Lorem Ipsum<span>DOC</span></div></div>
+                            <div class="block up assetThumb"><div class="info">Lorem Ipsum<span>PDF</span></div></div>
+                            <div class="block up assetThumb"><div class="info">Lorem Ipsum<span>PDF</span></div></div>
+                            <div class="block up assetThumb"><div class="info">Lorem Ipsum<span>TXT</span></div></div>
+                            <div class="block up assetThumb"><div class="info">Lorem Ipsum<span>TXT</span></div></div>
+                        </div>
+                        
+                        <div class="modal">
+                            <div class="modal-content">
+                                <div class="modal-content-img"><img alt="" id="previewThumb"></div>
+                                <div class="modal-content-info">
+                                    <span class="close">&times;</span>
+                                    <div class="wrapper">
+                                        <h2 id="previewTitle"></h2>  
+                                        <div class="file-info">
+                                            <span class="fileSize">10 MB</span>                                
+                                            <span class="fileExtension">PNG</span>    
+                                        </div>                             
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        
+        <script src="js/functions.js"></script>
+        <script src="js/filter.js"></script>
+        <script src="js/modal.js"></script>
+        <script src="js/lib/exif.js"></script>
+        <script src="js/uploadFiles.js"></script>
+    </div>
+</body>
+</html>

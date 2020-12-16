@@ -1,0 +1,85 @@
+@font-face {
+    font-family: NunitoSans;
+    src: url(font/NunitoSans-Regular.ttf);
+  }
+
+:root{
+    /* Colors */
+    --lightblue: #E9F1FC;
+    --black: #474747;
+    --orange: #F05928;
+    --red: #BC1D2C;
+    --gradient_IM: linear-gradient(45deg, rgba(240,89,40,1) 0%, rgba(188,29,44,1) 100%);
+
+    /* Neumorphism Design */
+    --neumorUp: 10px 10px 10px rgba(0, 0, 0, 0.20),-10px -10px 10px rgba(255, 255, 255, 0.4);
+    --neumorDown: inset 10px 10px 10px rgba(0, 0, 0, 0.2),inset -10px -10px 10px rgba(255, 255, 255, 0.6);
+}
+
+/* Globals */
+body {padding: 0 20px; background: var(--lightblue); margin: 0; color: var(--black); font-family: NunitoSans;}
+h1 {font-size: 40px; line-height: auto; margin: 0; font-weight: normal; text-shadow: 6px 6px 10px;}
+a {color: inherit; text-decoration: none;}
+.container {max-width: 100%; position: relative;}
+section {position: relative; padding-top: 30px;}
+.wrapper {max-width: 1650px; margin: 0 auto; position: relative;}
+.multi {position: relative;}
+.show {display: block !important;}
+.line {background: var(--gradient_IM); height: 10px; width: 100%; margin-top: 20px; box-shadow: 6px 6px 10px;}
+
+/* Nemorphism blocks */
+.block {width: 100px; height: 100px; border-radius: 20px; background: var(--lightblue); position: relative;}
+.block.up {box-shadow:  var(--neumorUp);}
+.block.down {box-shadow: var(--neumorDown);}
+
+/* Tabs */
+section.tabs .block.up {text-align: center; width: 250px; height: 50px; padding: 25px 0; display: inline-block; font-size: 40px; margin-right: 25px}
+section.tabs .block.up.last {margin-right: 0px;}
+.active {color: #fff; background: var(--gradient_IM);}
+
+/* Search */
+section.search .block.down {text-align: left; width: calc(100% - 25px); height: 50px; padding: 25px 0 25px 20px; display: inline-block; font-size: 40px;}
+section.search .block.down input {background: none;width: calc(100% - 25px);height: 100%;font-size: 40px;opacity: 20%; border: none;}
+section.search .block.down input:focus {outline: none; opacity: inherit;}
+
+/* Sidebar */
+.sticky {position: fixed;top: 0;width: 100%}
+section.sidebar {float: left; width: 20%;}
+section.sidebar .block.up {text-align: center; width: 250px; height: 628px; display: inline-block; font-size: 40px; margin-right: 20px;}
+
+/* Content */
+section.content {float: right; width: calc(80% - 25px);}
+section.content .block.up {width: calc(100% - 25px); height: 70px; padding: 80px 0 77.5px 20px; margin-bottom: 40px;}
+section.content .block.up .text {font-size: 40px; opacity: 20%;}
+section.content .block.up .text label {cursor: pointer;}
+#upload-photo {opacity: 0; position: absolute;}
+section.content .block.up .img img{position: absolute; width: 200px; top: 40px; right: 50px;}
+
+  /* Assets */
+section.content .block.up.assetThumb {width: 200px; height: 200px; padding: 20px; display: inline-block; margin-right: 5.7px; margin-top: 20px; border:  5px solid #E9F1FC;}
+section.content .block.up.assetThumb {background-image: url("img/person_with_smoke.jpg"); background-position: center; background-size: cover;}
+section.content .block.up.assetThumb:nth-of-type(3) {background-image: url("img/photo-1485575301924-6891ef935dcd.jpg");}
+section.content .block.up.assetThumb:nth-of-type(4) {background-image: url("img/aerodynamics.jpg");}
+section.content .block.up.assetThumb:nth-of-type(5) {background-image: url("img/aerodynamics2.jpg");}
+section.content .block.up.assetThumb:nth-of-type(6) {background-image: url("img/lines-3_charly2.jpg");}
+section.content .block.up .info {font-size: 20px; position: absolute;bottom: 0;background: rgba(233,241,252,0.65);height: 25px;width: calc(100% - 10px);left: 0;border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;padding: 20px 0 20px 10px}
+section.content .block.up .info span.extension {color: var(--red); position: absolute; bottom: 0px; right: 5px;}
+.filterDiv {display: none;}
+
+/* Preview */
+.modal{display: none;position: fixed;z-index: 1;padding-top: 100px; padding-bottom: 100px;left: 0;top: 0;width: 100%;height: 100vh;background-color: rgba(233,241,252,0.9);}
+.modal-content {max-width: 1400px; margin: 0 auto; background: var(--lightblue); height: 80vh; box-shadow: var(--neumorUp);}
+.modal-content-img {width: 70%; float: left;height: 100%;display: flex;align-items: center;justify-content: center; box-shadow: 2px 0px 15px -2px;}
+.modal-content-img img {max-width: 100%; width: auto; max-height: 80vh; height: 100%;}
+.modal-content-info {width: 30%; float: left; position: relative;}
+.modal-content-info .wrapper {max-width: 80%;margin: 0 auto; position: relative;}
+.modal-content-info h2 {font-size: 30px; max-width: 75%;}
+.modal-content-info span.fileSize {font-size: 15px;}
+.modal-content-info span.fileExtension {font-size: 15px; opacity: 50%;}
+
+span.close{color: #fff;font-size: 60px;position: absolute;top: -10px;right: 15px;cursor: pointer; color: var(--black);}
+
+/* Menu */
+header { position: absolute; top: 40px}
+#menu .bar {width: 50px;height: 10px;box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.20);background: var(--gradient_IM);border-radius: 20px;margin: 6px 0;}
+
