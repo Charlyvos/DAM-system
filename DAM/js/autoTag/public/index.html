@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload your image</title>
+  <link rel="stylesheet" href="/css/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+  <!-- Filepond stylesheet -->
+  <link href="/css/filepond.css" rel="stylesheet">
+  <link href="/css/tagify.css" rel="stylesheet">
+  <style type="text/css">
+    .stage {
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .output,
+    .upload { padding: 1rem; }
+
+    .preview { margin-bottom: 1rem; width: 100%; }
+    .preview img { max-height: 400px; max-width: 100%; }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="container pure-g">
+      <div class="pure-u-1-2">
+        <div class="upload">
+          <h1>Upload your image here</h1>
+          <form action="/api/tag" method="POST" class="pure-form-stacked">
+            <label for="image">
+              Select an image
+            </label>
+            <input type="file" name="image" class="filepond" placeholder="Upload image" />
+          </form>
+        </div>
+      </div>
+      <div id="output" class="pure-u-1-2 hidden">
+        <div class="output">
+          <h2>Tag it:</h2>
+          <div class="preview">
+            <img id="preview" />
+          </div>
+          <div class="tags">
+            <input id="tags" class="tags" type="text" />
+          </div>
+          <h3>Raw tagging output:</h3>
+          <pre id="tags-json"></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="/js/filepond.js"></script>
+  <script src="/js/tagify.polyfills.js"></script>
+  <script src="/js/tagify.min.js"></script>
+  <script src="js/setTags.js"></script>
+  
+</body>
+</html>

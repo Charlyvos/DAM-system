@@ -83,3 +83,6 @@ span.close{color: #fff;font-size: 60px;position: absolute;top: -10px;right: 15px
 header { position: absolute; top: 40px}
 #menu .bar {width: 50px;height: 10px;box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.20);background: var(--gradient_IM);border-radius: 20px;margin: 6px 0;}
 
+input.filepond--browser {display: none}
+.wrapperOutput img {max-width: 100px;}
+#tags, #tags-json {display: none;}

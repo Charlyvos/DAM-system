@@ -1,6 +1,8 @@
     var tagify, imgFile;
+    var threshold = 40;
+
     var showResults = function (tags) {
-        var container = document.getElementById('output'),
+        var container = document.getElementById('outputTag'),
             preview = document.getElementById('preview'),
             tagEl = document.getElementById('tags-json'),
             tagInput = document.getElementById('tags'),
@@ -27,7 +29,6 @@
         container.classList.remove('hidden')
     };
 
-    var threshold = 40;
     var getTagList = function (tags) {
         var list = {
             auto: [],
@@ -48,6 +49,7 @@
         server: {
             url: 'api/tag',
             process: {
+
                 url: '',
                 onload: function (response) {
                     var data = JSON.parse(response);
@@ -56,6 +58,7 @@
                         return
                     }
                     showResults(data.tags);
+                    showMeta();
                 }
             }
         },
@@ -65,4 +68,26 @@
             imgFile = file;
         }
     });
+
+    const inputFile = document.getElementsByClassName("filepond")[0];
+    const outputDiv = document.getElementById("outputMeta");
+
+    const showMeta = () => {
+        if (imgFile.file && imgFile.file.name) {
+            EXIF.getData(imgFile.file, function () {
+                var allTags = EXIF.getAllTags(this);
+                var exifData = EXIF.pretty(this);
+                if (exifData) {
+                    console.log(allTags);
+                    outputDiv.innerText += exifData;
+                } else {
+                    alert(`No metadata found in image ${imgFile.file.name}.`);
+                }
+            });
+        } else {
+            console.log("not inside if");
+        }
+
+    }
+
     FilePond.parse(document.body);

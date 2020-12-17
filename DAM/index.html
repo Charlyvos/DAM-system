@@ -42,14 +42,35 @@
                 <section class="content">
                     <div class="block up">
                         <div class="text">
-                            <label for="upload-photo">Drag project files or browse from your computer.</label>
-                            <input type="file" name="photo" id="upload-photo" multiple/>
+                            <form action="/api/tag" method="POST" class="pure-form-stacked">
+                            <input type="file" name="image" class="filepond"/>
+                            </form>
+
+                            <!-- <form action="/api/tag" method="POST" class="pure-form-stacked">
+                                <label for="image">Select an image</label>
+                                <input type="file" name="image" class="filepond" placeholder="Upload image" />
+                              </form> -->
+
                         </div>
                         <div class="img"><img src="img/image.png" alt=""></div>
                     </div>
                     <div class="wrapperOutput">
-                        <div class=""><img src="" alt="" id="previewImg"></div>
-                        <div id="output"></div>
+                        <!-- <div class=""><img src="" alt="" id="previewImg"></div>
+                        <div id="output"></div> -->
+                        <div id="outputTag" class="pure-u-1-2 hidden">
+                            <div class="output">
+                              <h2>Tag it:</h2>
+                              <div class="preview">
+                                <img id="preview" />
+                              </div>
+                              <div class="tags">
+                                <input id="tags" class="tags" type="text" />
+                              </div>
+                              <!-- <h3>Raw tagging output:</h3> -->
+                              <pre id="tags-json"></pre>
+                            </div>
+                          </div>
+                          <div id="outputMeta"></div>
                     </div>
 
                     <div class="assets">
@@ -128,6 +149,12 @@
         <script src="js/modal.js"></script>
         <script src="js/lib/exif.js"></script>
         <script src="js/uploadFiles.js"></script>
+
+        <script src="js/autoTag/public/js/filepond.js"></script>
+        <script src="js/autoTag/public/js/tagify.polyfills.js"></script>
+        <script src="js/autoTag/public/js/tagify.min.js"></script>
+        <script src="js/autoTag/public/js/setTags.js"></script>
+
     </div>
 </body>
 </html>
