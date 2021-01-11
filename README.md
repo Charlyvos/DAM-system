@@ -19,6 +19,6 @@ Om het DAM systeem te starten voer je het volgende command in in de commandline:
 NPM Start
 
 ```
-Vervolgens navigeert u naar [localhost:3000](localhost:3000)
+Vervolgens navigeert u naar [localhost:3000](localhost:3000) in de browser.
 
 ![demo dam](http://stage.charlyvos.nl/img/demo%20dam.png)
