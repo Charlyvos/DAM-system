@@ -16,7 +16,7 @@ Om het DAM systeem te starten voer je het volgende command in in de commandline:
 
 ```
 
-NPM Start
+NPM start
 
 ```
 Vervolgens navigeert u naar [localhost:3000](localhost:3000) in de browser.
